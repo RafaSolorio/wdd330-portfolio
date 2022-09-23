@@ -1,7 +1,7 @@
 var links = [
     {
         label: "Week 1 notes",
-        url: "../week1/index.html"
+        url: "week1/index.html"
     }
 ]
 

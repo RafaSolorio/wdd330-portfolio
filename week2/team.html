@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+
+    <script>
+      let number = document.getElementById('textinput').value
+      let number2 = document.getElementById('textinput2').value
+
+      sum = (n1, n2) => parseInt(n1) + parseInt(n2)
+      
+      document.getElementById("mydiv").innerHTML = sum(number, number2);
+    </script>
+    <style>
+    </style>
+    
+  </head>
+
+<body>
+  <h1>Team work</h1>
+
+  Type something<input id="textinput"></input>
+  <input id="textinput2"></input>
+  <button onclick="sum()">SUM</button>
+  <div id="mydiv">
+  </div>
+
+
+</body>
+</html>
