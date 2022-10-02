@@ -6,6 +6,7 @@ const quiz = [
 
 // View Object
 const view = {
+    start: document.getElementById('start'),
     score: document.querySelector('#score strong'),
     question: document.getElementById('question'),
     result: document.getElementById('result'),
@@ -15,6 +16,12 @@ const view = {
             target.setAttribute(key, attributes[key]);
         }
         target.innerHTML = content;
+    },
+    show(element){
+        element.style.display = 'block';
+    },
+    hide(element){
+        element.style.display = 'none';
     }
 };
 
@@ -29,6 +36,7 @@ const game = {
         }
         // end of main game loop
         this.gameOver();
+        view.hide(view.start);
     },
     ask(){
         const question = `What is ${this.question.name}'s real name?`;
@@ -50,7 +58,9 @@ const game = {
     },
     gameOver(){
         view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
+        view.show(view.start);
     }
 }
 
 game.start(quiz);
+view.start.addEventListener('click', () => game.start(quiz), false);
