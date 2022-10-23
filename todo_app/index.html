@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="styles.css">
+    <title>TODO app</title>
+</head>
+<body>
+    <h1>Todos</h1>
+
+    <section id="todoSection">
+        <ul id="todoList">
+        </ul>
+
+        <div>
+            <p id="tasksLeft"></p>
+            <button id="all" type='submit'>All</button>
+            <button id="completed"type='submit'>Completed</button>
+            <button id="notCompleted"type='submit'>Not Completed</button>
+        </div>
+    </section>
+
+    <form id="task">
+        <label for='taskContent'>Add a task:
+            <input type='text' id='' name='taskContent' autofocus placeholder='Your task'>
+            <button type='submit'>+</button>
+        </label>
+    </form>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
