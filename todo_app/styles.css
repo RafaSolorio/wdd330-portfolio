@@ -1,0 +1,12 @@
+li {
+    list-style: none;
+}
+
+.delete-task {
+    background-color: #EF3E36;
+    color: white;
+}
+
+.completed {
+    background-color: green;
+}

@@ -1,6 +1,13 @@
+
 function renderTask(task) {
   const todoList = document.querySelector('#todoList');
+  const id = document.querySelector(`[data-key='${task.id}']`);
 
+  if (task.deleted) {
+    // remove the item from the DOM
+    id.remove();
+    return
+  }
 
   const isChecked = task.checked ? 'done': '';
   const node = document.createElement("li");
@@ -14,7 +21,13 @@ function renderTask(task) {
   `;
 
   todoList.append(node);
-  console.log(todoItems);
+  console.log(ToDos);
+
+  if (id) {
+    list.replaceChild(node, id);
+  } else {
+    list.append(node);
+  }
 }
 
 let ToDos = [];
@@ -43,3 +56,23 @@ form.addEventListener('submit', event => {
   }
 });
 
+function deleteTask(key) {
+  const index = ToDos.findIndex(item => item.id === Number(key));
+  const task = {
+    deleted: true,
+    ...ToDos[index]
+  };
+  // remove the todo item from the array by filtering it out
+  ToDos = ToDos.filter(item => item.id !== Number(key));
+  renderTask(task);
+}
+
+const list = document.querySelector('#todoList');
+
+list.addEventListener('click', event => {
+  if (event.target.classList.contains('delete-task')) {
+    const itemKey = event.target.parentElement.dataset.key;
+
+    deleteTask(itemKey);
+  }
+});
