@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0 auto;
+    font-family: 'Roboto';
+    text-align: center;
+}
+
+main {
+    font-size: 1.4rem;
+}
 li {
     list-style: none;
+    padding: 5px;
 }
 
 .delete-task {
@@ -7,6 +19,6 @@ li {
     color: white;
 }
 
-.completed {
-    background-color: green;
+#task {
+    padding: 1em;
 }

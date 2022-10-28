@@ -6,26 +6,29 @@
     <title>TODO app</title>
 </head>
 <body>
-    <h1>Todos</h1>
+    <header>
+        <h1>Todos</h1>
+    </header>
+    <main>
+        <section id="todoSection">
+            <ul id="todoList">
+            </ul>
 
-    <section id="todoSection">
-        <ul id="todoList">
-        </ul>
+            <div>
+                <p id="tasksLeft"></p>
+                <button id="all" type='submit'>All</button>
+                <button id="completed"type='submit'>Completed</button>
+                <button id="notCompleted"type='submit'>Not Completed</button>
+            </div>
+        </section>
 
-        <div>
-            <p id="tasksLeft"></p>
-            <button id="all" type='submit'>All</button>
-            <button id="completed"type='submit'>Completed</button>
-            <button id="notCompleted"type='submit'>Not Completed</button>
-        </div>
-    </section>
-
-    <form id="task">
-        <label for='taskContent'>Add a task:
-            <input type='text' id='task-input' name='taskContent' autofocus placeholder='Your task'>
-            <button type='submit'>+</button>
-        </label>
-    </form>
+        <form id="task">
+            <label for='taskContent'>Add a task:
+                <input type='text' id='task-input' name='taskContent' autofocus placeholder='Your task'>
+                <button type='submit'>+</button>
+            </label>
+        </form>
+    </main>
 
     <script src="main.js"></script>
 </body>
