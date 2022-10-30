@@ -1,0 +1,16 @@
+h3, h4 {
+    font-size: larger;
+}
+
+h4 {
+    padding-top: 1rem;
+}
+
+#list {
+    padding-top: 1em;
+}
+
+li {
+    font-family: 'Roboto';
+}
+
