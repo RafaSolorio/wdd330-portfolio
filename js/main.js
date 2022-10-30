@@ -18,6 +18,10 @@ var links = [
     {
         label: "TODO app",
         url: "todo_app/index.html"
+    },
+    {
+        label: "Week 7 notes",
+        url: "week7/index.html"
     }
 ]
 

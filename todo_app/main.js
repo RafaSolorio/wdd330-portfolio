@@ -1,11 +1,11 @@
 
 function renderTask(task) {
   const todoList = document.querySelector('#todoList');
-  const id = document.querySelector(`[data-key='${task.id}']`);
+  const item = document.querySelector(`[data-key='${task.id}']`);
 
   if (task.deleted) {
     // remove the item from the DOM
-    id.remove();
+    item.remove();
     return
   }
 
@@ -14,8 +14,8 @@ function renderTask(task) {
   node.setAttribute('class', `todo-item ${isChecked}`);
   node.setAttribute('data-key', task.id);
   node.innerHTML = `
-    <input id="${task.id}" type="checkbox"/>
-    <label for="${task.id}" class="tick"></label>
+    <input id="${task.id}" class="tick" type="checkbox"/>
+    <label for="${task.id}"></label>
     <span>${task.text}</span>
     <button class="delete-task">X</button>
   `;
@@ -23,10 +23,10 @@ function renderTask(task) {
   todoList.append(node);
   console.log(ToDos);
 
-  if (id) {
-    list.replaceChild(node, id);
+  if (item) {
+    todoList.replaceChild(node, item);
   } else {
-    list.append(node);
+    todoList.append(node);
   }
 }
 
@@ -41,6 +41,18 @@ function addTask(text) {
 
   ToDos.push(task);
   renderTask(task);
+}
+
+function markDone(key) {
+  // findIndex is an array method that returns the position of an element
+  // in the array.
+  const index = ToDos.findIndex(item => item.id === Number(key));
+  // Locate the todo item in the todoItems array and set its checked
+  // property to the opposite. That means, `true` will become `false` and vice
+  // versa.
+  ToDos[index].completed = true;
+  renderTask(ToDos[index]);
+  alert('works')
 }
 
 const form = document.querySelector('#task');
@@ -67,12 +79,28 @@ function deleteTask(key) {
   renderTask(task);
 }
 
-const list = document.querySelector('#todoList');
+const todoList = document.querySelector('#todoList');
 
-list.addEventListener('click', event => {
+todoList.addEventListener('click', event => {
+  if (event.target.classList.contains('tick')) {
+    const itemKey = event.target.parentElement.dataset.key;
+    markDone(itemKey);
+  }
+
   if (event.target.classList.contains('delete-task')) {
     const itemKey = event.target.parentElement.dataset.key;
-
     deleteTask(itemKey);
   }
+
 });
+
+// Select the entire list
+//let listSection = document.querySelector('#todoList');
+// Add a click event listener to the list and its children
+//listSection.addEventListener('click', event => {
+//  if (event.target.classList.contains('tick')) {
+//    const itemKey = event.target.parentElement.dataset.key;
+//    alert('first part works')
+//    markDone(itemKey);
+//  }
+//});
