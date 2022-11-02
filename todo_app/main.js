@@ -21,12 +21,15 @@ function renderTask(task) {
   `;
 
   todoList.append(node);
-  console.log(ToDos);
 
   if (item) {
     todoList.replaceChild(node, item);
   } else {
     todoList.append(node);
+  }
+
+  if(task.completed){
+    node.style.textDecoration = "line-through"
   }
 }
 
@@ -45,7 +48,7 @@ function addTask(text) {
 
 function markDone(key) {
   const index = ToDos.findIndex(item => item.id === Number(key));
-  ToDos[index].completed = true;
+  ToDos[index].completed = !ToDos[index].completed;
   renderTask(ToDos[index]);
 }
 
@@ -88,13 +91,35 @@ todoList.addEventListener('click', event => {
 
 });
 
-// Select the entire list
-//let listSection = document.querySelector('#todoList');
-// Add a click event listener to the list and its children
-//listSection.addEventListener('click', event => {
-//  if (event.target.classList.contains('tick')) {
-//    const itemKey = event.target.parentElement.dataset.key;
-//    alert('first part works')
-//    markDone(itemKey);
+//function filterCompleted(task){
+//  if(task.completed === true){
+//    return task
 //  }
-//});
+//}
+function filterCompleteList(){
+  todoList.innerHTML = "";
+  let filtered = ToDos.filter(task => task.completed === true);
+  filtered.forEach(task => {
+    renderTask(task)});
+}
+
+function filterIncompleteList(){
+  todoList.innerHTML = "";
+  let filtered = ToDos.filter(task => task.completed === false);
+  filtered.forEach(task => {
+    renderTask(task)});
+}
+
+function showList(){
+  ToDos.forEach(task => renderTask(task));
+}
+
+
+let completedButton = document.getElementById('complete');
+completedButton.addEventListener('click', filterCompleteList);
+
+let incompleteButton = document.getElementById('incomplete');
+incompleteButton.addEventListener('click', filterIncompleteList);
+
+let showAllButton = document.getElementById('all');
+showAllButton.addEventListener('click', showList);
