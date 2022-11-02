@@ -14,6 +14,15 @@ h1 {
 }
 
 a {
+    text-decoration: none;
     font-family: 'Roboto';
     font-size: 1.17em;
+}
+
+li :hover{
+    color: #fca311;
+}
+
+.index :hover {
+    color: #f77f00;
 }
