@@ -6,12 +6,9 @@ body {
     font-size: 1.2em;
 }
 
-/*main {
-    font-size: 1.4rem;
-}*/
 li {
     list-style: none;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .delete-task {
@@ -43,6 +40,6 @@ li {
 }
 
 input.tick {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
 }

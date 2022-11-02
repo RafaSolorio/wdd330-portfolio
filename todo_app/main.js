@@ -68,7 +68,6 @@ function deleteTask(key) {
     deleted: true,
     ...ToDos[index]
   };
-  // remove the todo item from the array by filtering it out
   ToDos = ToDos.filter(item => item.id !== Number(key));
   renderTask(task);
 }
@@ -76,19 +75,6 @@ function deleteTask(key) {
 const todoList = document.querySelector('#todoList');
 
 todoList.addEventListener('click', event => {
-  if (event.target.classList.contains('tick')) {
-    const itemKey = event.target.parentElement.dataset.key;
-    markDone(itemKey);
-  }
-
-  if (event.target.classList.contains('delete-task')) {
-    const itemKey = event.target.parentElement.dataset.key;
-    deleteTask(itemKey);
-  }
-
-});
-
-todoList.addEventListener('touchend', event => {
   if (event.target.classList.contains('tick')) {
     const itemKey = event.target.parentElement.dataset.key;
     markDone(itemKey);
@@ -122,13 +108,10 @@ function showList(){
 
 let completedButton = document.getElementById('complete');
 completedButton.addEventListener('click', filterCompleteList);
-completedButton.addEventListener('touchend', filterCompleteList);
 
 let incompleteButton = document.getElementById('incomplete');
 incompleteButton.addEventListener('click', filterIncompleteList);
-incompleteButton.addEventListener('touchend', filterIncompleteList);
 
 
 let showAllButton = document.getElementById('all');
 showAllButton.addEventListener('click', showList);
-showAllButton.addEventListener('touchend', showList);
