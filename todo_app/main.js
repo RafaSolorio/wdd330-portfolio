@@ -44,15 +44,9 @@ function addTask(text) {
 }
 
 function markDone(key) {
-  // findIndex is an array method that returns the position of an element
-  // in the array.
   const index = ToDos.findIndex(item => item.id === Number(key));
-  // Locate the todo item in the todoItems array and set its checked
-  // property to the opposite. That means, `true` will become `false` and vice
-  // versa.
   ToDos[index].completed = true;
   renderTask(ToDos[index]);
-  alert('works')
 }
 
 const form = document.querySelector('#task');
