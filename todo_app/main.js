@@ -4,32 +4,29 @@ function renderTask(task) {
   const item = document.querySelector(`[data-key='${task.id}']`);
 
   if (task.deleted) {
-    // remove the item from the DOM
     item.remove();
     return
   }
 
-  const isChecked = task.checked ? 'done': '';
-  const node = document.createElement("li");
-  node.setAttribute('class', `todo-item ${isChecked}`);
-  node.setAttribute('data-key', task.id);
-  node.innerHTML = `
+  const element = document.createElement("li");
+  element.setAttribute('data-key', task.id);
+  element.innerHTML = `
     <input id="${task.id}" class="tick" type="checkbox"/>
     <label for="${task.id}"></label>
     <span>${task.text}</span>
     <button class="delete-task">X</button>
   `;
 
-  todoList.append(node);
+  todoList.append(element);
 
   if (item) {
-    todoList.replaceChild(node, item);
+    todoList.replaceChild(element, item);
   } else {
-    todoList.append(node);
+    todoList.append(element);
   }
 
   if(task.completed){
-    node.style.textDecoration = "line-through"
+    element.style.textDecoration = "line-through"
   }
 }
 
@@ -91,11 +88,19 @@ todoList.addEventListener('click', event => {
 
 });
 
-//function filterCompleted(task){
-//  if(task.completed === true){
-//    return task
-//  }
-//}
+todoList.addEventListener('touchend', event => {
+  if (event.target.classList.contains('tick')) {
+    const itemKey = event.target.parentElement.dataset.key;
+    markDone(itemKey);
+  }
+
+  if (event.target.classList.contains('delete-task')) {
+    const itemKey = event.target.parentElement.dataset.key;
+    deleteTask(itemKey);
+  }
+
+});
+
 function filterCompleteList(){
   todoList.innerHTML = "";
   let filtered = ToDos.filter(task => task.completed === true);
@@ -117,9 +122,13 @@ function showList(){
 
 let completedButton = document.getElementById('complete');
 completedButton.addEventListener('click', filterCompleteList);
+completedButton.addEventListener('touchend', filterCompleteList);
 
 let incompleteButton = document.getElementById('incomplete');
 incompleteButton.addEventListener('click', filterIncompleteList);
+incompleteButton.addEventListener('touchend', filterIncompleteList);
+
 
 let showAllButton = document.getElementById('all');
 showAllButton.addEventListener('click', showList);
+showAllButton.addEventListener('touchend', showList);

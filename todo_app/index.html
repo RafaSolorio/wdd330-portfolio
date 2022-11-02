@@ -2,6 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
     <title>TODO app</title>
 </head>
@@ -14,18 +15,18 @@
             <ul id="todoList">
             </ul>
 
-            <div>
+            <div id="buttons">
                 <p id="tasksLeft"></p>
-                <button id="all" type='submit'>All</button>
-                <button id="complete" type='submit'>Completed</button>
-                <button id="incomplete" type='submit'>Not Completed</button>
+                <button class="buttons" id="all" type='submit'>All</button>
+                <button class="buttons" id="complete" type='submit'>Completed</button>
+                <button class="buttons" id="incomplete" type='submit'>Not Completed</button>
             </div>
         </section>
 
         <form id="task">
             <label for='taskContent'>Add a task:
                 <input type='text' id='task-input' name='taskContent' autofocus placeholder='Your task'>
-                <button type='submit'>+</button>
+                <button id="submit-button" type='submit'>+</button>
             </label>
         </form>
     </main>

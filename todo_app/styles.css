@@ -4,14 +4,15 @@ body {
     margin: 0 auto;
     font-family: 'Roboto';
     text-align: center;
+    font-size: 3rem;
 }
 
-main {
+/*main {
     font-size: 1.4rem;
-}
+}*/
 li {
     list-style: none;
-    padding: 5px;
+    padding: 2rem;
 }
 
 .delete-task {
@@ -20,5 +21,29 @@ li {
 }
 
 #task {
-    padding: 1em;
+    padding-top: 1em;
+}
+
+#buttons {
+    padding-top: 1em;
+
+}
+
+.buttons {
+    background-color: #4d908e;
+    color: white;
+    border-radius: 5px;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    margin: 0.8rem;
+}
+#submit-button{
+    background-color: #43aa8b;
+    color: white;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+}
+
+input.tick {
+    width: 40px;
+    height: 40px;
 }
