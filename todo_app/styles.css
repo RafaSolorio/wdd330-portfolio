@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 body {
     margin: 0 auto;
     font-family: 'Roboto';
     text-align: center;
-    font-size: 3rem;
+    font-size: 1.2em;
 }
 
 /*main {
@@ -34,7 +33,7 @@ li {
     color: white;
     border-radius: 5px;
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin: 0.8rem;
+    margin: 0.3rem;
 }
 #submit-button{
     background-color: #43aa8b;
