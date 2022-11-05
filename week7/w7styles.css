@@ -22,3 +22,8 @@ li {
 #ajax:hover {
     color: #f77f00;
 }
+
+#notes {
+    margin-top: 1.8em;
+    margin-bottom: -1.6rem;
+}
