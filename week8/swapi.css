@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    padding: 1em;
+    background-color: brown;
+}
+
+#people {
+    padding: 0;
+    list-style: none;
+    background-color: rgba(45, 167, 76, 0.616);
+}
+
+li {
+    padding: 1em;
+    background-color: rgb(91, 177, 253);
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
