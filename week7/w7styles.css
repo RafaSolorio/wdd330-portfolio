@@ -14,3 +14,11 @@ li {
     font-family: 'Roboto';
 }
 
+#ajax {
+    font-size: 1.7em;
+    color: #264653;
+}
+
+#ajax:hover {
+    color: #f77f00;
+}
