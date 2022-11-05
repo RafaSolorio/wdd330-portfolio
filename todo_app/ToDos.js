@@ -9,7 +9,6 @@
 
   renderTask(task) {
     const todoList = document.querySelector('#todoList');
-    //if(task.id === undefined) {return}
     const item = document.querySelector(`[data-key='${task.id}']`);
   
     if (task.deleted) {
@@ -20,7 +19,7 @@
     const element = document.createElement("li");
     element.setAttribute('data-key', task.id);
     element.innerHTML = `
-      <input id="${task.id}" class="tick" type="checkbox"/>
+      <input id="${task.id}" class="checkbox" type="checkbox"/>
       <label for="${task.id}"></label>
       <span>${task.text}</span>
       <button class="delete-task">X</button>
@@ -37,6 +36,7 @@
     if(task.completed){
       element.style.textDecoration = "line-through"
     }
+    this.countTasksLeft();
   }
 
   addTask(text) {
@@ -58,6 +58,7 @@
     };
     this.ToDosList = this.ToDosList.filter(item => item.id !== Number(key));
     this.renderTask(task);
+    this.countTasksLeft();
   }
 
   markDone(key) {
@@ -80,9 +81,17 @@
     let filtered = this.ToDosList.filter(task => task.completed === false);
     filtered.forEach(task => {
       this.renderTask(task)});
+    return filtered;
   }
   
   showList(){
     this.ToDosList.forEach(task => this.renderTask(task));
+  }
+
+  countTasksLeft(){
+    let filteredList = this.ToDosList.filter(task => task.completed === false);
+    let span = document.getElementById('tasksLeft');
+    span.textContent = `${filteredList.length} tasks left`;
+    
   }
 }

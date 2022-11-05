@@ -18,7 +18,7 @@ form.addEventListener('submit', event => {
 const todoList = document.querySelector('#todoList');
 
 todoList.addEventListener('click', event => {
-  if (event.target.classList.contains('tick')) {
+  if (event.target.classList.contains('checkbox')) {
     const itemKey = event.target.parentElement.dataset.key;
     myToDos.markDone(itemKey);
   }

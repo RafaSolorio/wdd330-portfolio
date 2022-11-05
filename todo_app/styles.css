@@ -29,17 +29,22 @@ li {
     background-color: #4d908e;
     color: white;
     border-radius: 5px;
-    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin: 0.3rem;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    font-size: 1.1rem;
 }
 #submit-button{
     background-color: #43aa8b;
     color: white;
     border-radius: 5px;
-    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
-input.tick {
+input.checkbox {
     width: 20px;
     height: 20px;
+}
+
+#tasksLeft{
+    font-size: 1.1rem;
+    margin-right: 1.4rem;
 }
