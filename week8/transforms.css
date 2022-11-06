@@ -1,0 +1,9 @@
+.article h1:hover span {
+    color: #484848;  
+    transform: rotate(10deg) translateX(40px) scale(1.5);
+    display: inline-block;
+}
+
+.article h1 span {
+    transition-property: transform;
+}

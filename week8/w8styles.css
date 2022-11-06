@@ -1,0 +1,9 @@
+#exercise {
+    font-size: 1.6em;
+    color: #264653;
+}
+
+#exercise:hover {
+    color: #f77f00;
+}
+
