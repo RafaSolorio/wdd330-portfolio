@@ -5,3 +5,19 @@ a{
 .index {
     text-decoration: none;
 }
+#fetch-example{
+    list-style: none;
+    font-family: 'Roboto';
+    font-size: 1.17em;
+    margin-top: -1rem;
+}
+
+.notes-list{
+    list-style: none;
+    font-family: 'Roboto';
+    font-size: 1.17em;
+}
+
+#fetch-heading{
+    margin-top: 2.5em;
+}

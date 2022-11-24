@@ -15,13 +15,28 @@
     is that when incorrect data is found the user can quickly fix it.</p>
   <p>Validation done in the browser is called <i>client-side validation</i></p>
   <p>Examples of form validation feedback:</p>
-  <ul>
+  <ul class="notes-list">
     <li>Please enter your phone number in the format xxx-xxxx" (A specific data format is required for it to be considered valid).</li>
     <li>Please enter a valid email address" (the data you entered is not in the right format).</li>
   </ul>
   <p>I can validate user data without JavaScript, this is done by using validation attributes on form elements. 
     For example: <i>required</i>, <i>minlength</i> and <i>maxlength</i>. 
     This is called <i>Built-in form validation</i></p>
+  <h4 id="fetch-heading">Fetch API</h4>
+  <p>The Fetch API provides <i>the fetch()</i> method that provides an easy way to fetch resources asynchronously.</p>
+  <p>A basic fetch request is easy to set up, for exampple:</p>
+  <p>fetch('http://example.com/movies.json')</p>
+  <ul id="fetch-example">
+    <li>.then((response) => response.json())</li>
+    <li>.then((data) => console.log(data));</li>
+  </ul>
+  <p>Response instances are returned when fetch() promises are resolved.</p>
+  <p>The most common response properties are:</p>
+  <ul class="notes-list">
+    <li><i>Response.status:</i> The response status code (an integer).</li>
+    <li><i>Response.statusText:</i> The HTTP status code message (string).</li>
+    <li><i>Response.ok:</i> A shorthand for checking that the response status is in the range 200-299 (returns a boolean).</li>
+  </ul>
   
 </body>
 </html>
