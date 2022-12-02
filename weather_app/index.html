@@ -15,48 +15,53 @@
           <div class="motto">The weather for your life.</div>
         </header>
         <main>
+          <form id="search">
+            <input type="search" id="name" name="q">
+            <button type='submit'>Search</button>
+          </form>
           <div class="backgroundimg">
             <picture>  
             </picture>
             <div class="weather-summary">
-              <h3>Weather summary</h3>
-              <div class="right">Currently:</div><div class="left" id="currently">Sunny</div>
-              <div class="right">High:</div><div class="left" id="temperature"></div><div id="lf">°F</div>
-              <div class="right">Wind Chill:</div><div class="left" id="wind-chill"></div><div class="f">°F</div>
-              <div class="right">Humidity:</div><div class="left" id="humidity"></div><div class="f">%</div>
-              <div class="right">Wind Speed:</div><div class="left" id="wind-speed"></div><div id="mph">mph</div>
+              <ul>
+                <li>Currently: <span class="left" id="currently">Sunny<span></li>
+                <li>High: <span class="left" id="temperature"></span>°F
+                <li>Wind Chill: <span class="left" id="wind-chill"></span>°F
+                <li>Humidity: <span class="left" id="humidity"></span>%
+                <li>Wind Speed: <span class="left" id="wind-speed"></span>mph
+              </ul>
             </div>
           </div>
           <div class="forecastdiv">
-            <div class="Wed">
+            <span class="Wed">
               <h4>Wed</h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast">forecast</h5>
-            </div>
-            <div class="Thu">
+            </span>
+            <span class="Thu">
               <h4>Thu</h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast">forecast</h5>
-            </div>
-            <div class="Fri">
+            </span>
+            <span class="Fri">
               <h4>Fri</h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast">forecast</h5>
-            </div>
-            <div class="Sat">
+            </span>
+            <span class="Sat">
               <h4>Sat</h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast">forecast</h5>
-            </div>
-            <div class="Sun">
+            </span>
+            <span class="Sun">
               <h4>Sun</h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast">forecast</h5>
-            </div>
+            </span>
           </div>
         </main>
         <footer>
         </footer>
-        <script></script>
+        <script src="js/main.js" type="module"></script>
     </body>
 </html>
