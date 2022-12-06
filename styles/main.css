@@ -13,6 +13,16 @@ h1 {
     color: #264653;
 }
 
+.index {
+    text-decoration: none;
+}
+
+ul li a{
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-size: 1.17em;
+}
+
 ol li a {
     text-decoration: none;
     font-family: 'Roboto';
