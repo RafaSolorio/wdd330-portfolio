@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    background-image: url("../images/rz-sky-unsplash.jpg");
+    background-size: cover;
+    font-family: 'Roboto';
+    color: white;
+}
 ul {
     list-style: none;
+}
+.weather-summary{
+    margin: 0 auto;
+    background-color: #554e58c0;
+    border-radius: 8px;
+    max-width: 80%;
 }
