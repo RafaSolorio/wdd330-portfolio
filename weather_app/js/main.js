@@ -41,7 +41,7 @@ function forecast(url){
 let location = await getLocation();
 //console.log(location.coords);
 //http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}
-let newurl = `http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
+let newurl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
 let newF= `https://api.openweathermap.org/data/2.5/forecast?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
 const form = document.forms['search'];
 form.addEventListener('submit', searchPlace, false);
