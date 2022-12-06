@@ -1,12 +1,13 @@
 import {getLocation} from './utilities.js';
 
-// const theurl = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
+const theurl = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
 const apiURL = 'https://api.openweathermap.org/data/2.5/weather?id=5604473&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
 function getWeather(url){
   fetch(url)
   .then((response) => response.json())
   .then((jsObject) => {
     console.log(jsObject)
+    document.getElementById('city-name').textContent = jsObject.name;
     document.getElementById('currently').textContent = jsObject.weather[0].main;
     document.getElementById('temperature').textContent = jsObject.main.temp_max;
     document.getElementById('humidity').textContent = jsObject.main.humidity;
@@ -38,11 +39,11 @@ function forecast(url){
   });
 }
 
-let location = await getLocation();
-//console.log(location.coords);
-//http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}
-let newurl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
-let newF= `https://api.openweathermap.org/data/2.5/forecast?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
+//let location = await getLocation();
+////console.log(location.coords);
+////http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}
+//let newurl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
+//let newF= `https://api.openweathermap.org/data/2.5/forecast?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
 const form = document.forms['search'];
 form.addEventListener('submit', searchPlace, false);
 function searchPlace(event){
@@ -52,5 +53,28 @@ function searchPlace(event){
     forecast(apiURLf);
     
 }
-getWeather(newurl);
-forecast(newF);
+
+
+//getWeather(newurl);
+//forecast(newF);
+
+//async function getIpClient() {
+//  try {
+//    const response = await axios.get('https://ipinfo.io/json');
+//    console.log(response);
+//  } catch (error) {
+//    console.error(error);
+//  }
+//}
+
+//getIpClient();
+
+
+let location = 'https://ipinfo.io/json';
+
+fetch(location)
+.then(response => response.json())
+.then((json) => {
+  let ipurl = `https://api.openweathermap.org/data/2.5/weather?q=${json.city}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+  getWeather(ipurl);
+});
