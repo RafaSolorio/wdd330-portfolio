@@ -7,3 +7,8 @@ export const getLocation = function(options) {
 //windchill function
 
 ///conver to to celcius
+
+//add imperial units, metric units
+
+
+// get dayName

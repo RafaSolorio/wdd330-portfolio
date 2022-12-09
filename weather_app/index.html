@@ -10,50 +10,47 @@
       <link rel="stylesheet" href="styles/main.css">
     </head>   
     <body>
-        <header>      
-          <h1>The Weather App</h1>
-          <div class="motto">The weather for your life.</div>
-        </header>
         <main>
           <form id="search">
             <input type="search" id="name" name="q">
-            <button type='submit'>Search</button>
+            <button class ='button' type='submit'>&#x1F50E;&#xFE0E;</button>
           </form>
-            <div class="weather-summary">
+          <span id="imperial">F|</span><span id="metric">C</span>
+            <div id="weather-summary">
               <ul>
                 <li><span id="city-name"></span></li>
-                <li>Currently: <span class="left" id="currently">Sunny<span></li>
-                <li>High: <span class="left" id="temperature"></span>°F
-                <li>Wind Chill: <span class="left" id="wind-chill"></span>°F
+                <li>Currently: <span class="left" id="currently"><span></li>
+                <li>High: <span class="left" id="temperature"></span><span id="t-unit"></span>
+                <li>Wind Chill: <span class="left" id="wind-chill"></span><span id="w-unit"></span>
                 <li>Humidity: <span class="left" id="humidity"></span>%
-                <li>Wind Speed: <span class="left" id="wind-speed"></span>mph
+                <li>Wind Speed: <span class="left" id="wind-speed"></span><span class="left" id="ws-unit"></span>
               </ul>
             </div>
           <div class="forecastdiv">
             <span class="Wed">
-              <h4>Wed</h4>
+              <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast">forecast</h5>
+              <h5 class="forecast"></h5>
             </span>
             <span class="Thu">
-              <h4>Thu</h4>
+              <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast">forecast</h5>
+              <h5 class="forecast"></h5>
             </span>
             <span class="Fri">
-              <h4>Fri</h4>
+              <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast">forecast</h5>
+              <h5 class="forecast"></h5>
             </span>
             <span class="Sat">
-              <h4>Sat</h4>
+              <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast">forecast</h5>
+              <h5 class="forecast"></h5>
             </span>
             <span class="Sun">
-              <h4>Sun</h4>
+              <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast">forecast</h5>
+              <h5 class="forecast"></h5>
             </span>
           </div>
         </main>

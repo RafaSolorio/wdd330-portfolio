@@ -1,7 +1,20 @@
 import {getLocation} from './utilities.js';
 
-const theurl = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
-const apiURL = 'https://api.openweathermap.org/data/2.5/weather?id=5604473&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
+function getDayName(date){
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  const numberDay = new Date(date).getDay();
+  const nameDay = days[numberDay];
+  return nameDay
+}
+
 function getWeather(url){
   fetch(url)
   .then((response) => response.json())
@@ -15,20 +28,35 @@ function getWeather(url){
   });
 }
 
-const apiURLf = 'https://api.openweathermap.org/data/2.5/forecast?id=5604473&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
+//this block works! just to figuer out how to use a json outside the fetch
+async function getWeaterAsyn(url) {
+  const response = await fetch(url)
+  const obj = await response.json()
+  return obj;
+}
+//let hola = await getWeaterAsyn(testurl);
+//console.log(hola.name)
+
+
+const testurl = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
+const apiURLf = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
 function forecast(url){
   fetch(url)
   .then((response) => response.json())
   .then((jsObject) => {
+    //console.log(jsObject);
     const dayList = jsObject.list;
-    //console.log(dayList)
+    console.log(dayList)
 
     let index=0;
     dayList.forEach(element => {
         if (element.dt_txt.includes("18:00:00")){
+            let dayName = getDayName(element.dt_txt);
             const iconClass = document.getElementsByClassName('iconf');
             const forecastClass = document.getElementsByClassName('forecast');
+            const dayClass = document.getElementsByClassName('day-name');
             forecastClass[index].textContent = element.weather[0].main;
+            dayClass[index].textContent = dayName;
             const imagesrc = 'https://openweathermap.org/img/w/' + element.weather[0].icon + '.png';
             const desc = element.weather[0].description;
             iconClass[index].setAttribute('src', imagesrc);  
@@ -58,23 +86,66 @@ function searchPlace(event){
 //getWeather(newurl);
 //forecast(newF);
 
-//async function getIpClient() {
-//  try {
-//    const response = await axios.get('https://ipinfo.io/json');
-//    console.log(response);
-//  } catch (error) {
-//    console.error(error);
-//  }
-//}
 
-//getIpClient();
+let location = 'https://ipinfo.io/json'; //1000 limit per day. this is the chosen
+let loc  ='http://www.geoplugin.net/json.gp?ip='  // testing
 
 
-let location = 'https://ipinfo.io/json';
+//Request visitor data using Fetch API (Async/Await)  DONE
+//const request = await fetch("https://ipinfo.io/json?token=b9be1cdead0805")
+//const jsonResponse = await request.json()
+//
+//console.log(jsonResponse.ip, jsonResponse.country, jsonResponse.city);
 
-fetch(location)
-.then(response => response.json())
-.then((json) => {
-  let ipurl = `https://api.openweathermap.org/data/2.5/weather?q=${json.city}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
-  getWeather(ipurl);
+
+//just coomented this block to not exceed the rate limit while testing. NOW I'LL USE AWAIT (BLOCK CODE ABOVE)
+//fetch(location)
+//.then(response => response.json())
+//.then((json) => {
+//  //console.log(json);
+//  let ipurl = `https://api.openweathermap.org/data/2.5/weather?q=${json.city}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+//  let ipurlf = `https://api.openweathermap.org/data/2.5/forecast?q=${json.city}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+//  getWeather(ipurl);
+//  forecast(ipurlf);
+//
+//
+//});
+
+
+//This block works! To use the json object ouside the fecth (NOW I'LL USE A SHOTTER ,ETHOD)
+async function getULocation(ipurl) {
+  const response = await fetch(ipurl)
+  const obj = await response.json()
+  return obj.geoplugin_city;
+}
+//let userLocation = await getULocation(loc);
+//let theurl = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+
+let apiUrlImperial = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
+let apiUrlMetric = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
+let apiURLFImperial = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
+let apiURLfMetric = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
+
+
+//forecast(apiURLf);
+
+
+//switch units
+let imperial = document.getElementById('imperial');
+imperial.addEventListener('click', function(event){
+  event.preventDefault();
+  //getWeather(apiUrlImperial);
+  document.getElementById('t-unit').innerHTML = '°F';
+  document.getElementById('w-unit').innerHTML = '°F'
+  document.getElementById('ws-unit').innerHTML = 'mph'
 });
+
+let metric = document.getElementById('metric');
+metric.addEventListener('click', function(event){
+  event.preventDefault();
+  //getWeather(apiUrlMetric);
+  document.getElementById('t-unit').innerHTML = '°C';
+  document.getElementById('w-unit').innerHTML = '°C'
+  document.getElementById('ws-unit').innerHTML = 'm/s'
+});
+//getWeather(apiUrlImperial);
