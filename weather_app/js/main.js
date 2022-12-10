@@ -20,9 +20,16 @@ function getWeather(url){
   .then((response) => response.json())
   .then((jsObject) => {
     console.log(jsObject)
+    console.log(jsObject.main.temp)
     document.getElementById('city-name').textContent = jsObject.name;
     document.getElementById('currently').textContent = jsObject.weather[0].main;
-    document.getElementById('temperature').textContent = jsObject.main.temp_max;
+    document.getElementById('temperature').textContent = Math.round(jsObject.main.feels_like);
+    //document.getElementById('ct-icon').textContent = jsObject.main.temp;
+    //let img = document.getElementById('ct-icon');
+    //console.log(img)
+    const imagesrc = 'https://openweathermap.org/img/w/' + jsObject.weather[0].icon + '.png';
+    document.getElementById('ct-icon').setAttribute('src', imagesrc);
+    //img.setAttribute('src', imagesrc); 
     document.getElementById('humidity').textContent = jsObject.main.humidity;
     document.getElementById('wind-speed').textContent = jsObject.wind.speed;
   });
@@ -34,11 +41,19 @@ async function getWeaterAsyn(url) {
   const obj = await response.json()
   return obj;
 }
-//let hola = await getWeaterAsyn(testurl);
 //console.log(hola.name)
 
 
+
 const testurl = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
+//STRUGGLING WITH ICON 
+//let hola = await getWeaterAsyn(testurl);
+//let img = document.getElementById('ct-icon');
+//let imagesrc = 'https://openweathermap.org/img/w/' + hola.weather[0].icon + '.png';
+//img.setAttribute('src', imagesrc);
+//let hola = await getWeaterAsyn(testurl);
+
+
 const apiURLf = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
 function forecast(url){
   fetch(url)
@@ -77,8 +92,8 @@ form.addEventListener('submit', searchPlace, false);
 function searchPlace(event){
     event.preventDefault();
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${form.name.value}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
-    getWeather(url);
-    forecast(apiURLf);
+    //getWeather(url);
+    //forecast(apiURLf);
     
 }
 
@@ -94,7 +109,8 @@ let loc  ='http://www.geoplugin.net/json.gp?ip='  // testing
 //Request visitor data using Fetch API (Async/Await)  DONE
 //const request = await fetch("https://ipinfo.io/json?token=b9be1cdead0805")
 //const jsonResponse = await request.json()
-//
+//const city = jsonResponse.city;
+
 //console.log(jsonResponse.ip, jsonResponse.country, jsonResponse.city);
 
 
@@ -148,4 +164,4 @@ metric.addEventListener('click', function(event){
   document.getElementById('w-unit').innerHTML = '°C'
   document.getElementById('ws-unit').innerHTML = 'm/s'
 });
-//getWeather(apiUrlImperial);
+//getWeather(apiUrlMetric);

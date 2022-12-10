@@ -7,7 +7,8 @@
       <meta name="description"
         content="Weather website">
       <title>The Weather App</title>
-      <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/small.css">
+      <link rel="stylesheet" href="styles/large.css">
     </head>   
     <body>
         <main>
@@ -15,43 +16,43 @@
             <input type="search" id="name" name="q">
             <button class ='button' type='submit'>&#x1F50E;&#xFE0E;</button>
           </form>
-          <span id="imperial">F|</span><span id="metric">C</span>
-            <div id="weather-summary">
-              <ul>
-                <li><span id="city-name"></span></li>
-                <li>Currently: <span class="left" id="currently"><span></li>
-                <li>High: <span class="left" id="temperature"></span><span id="t-unit"></span>
-                <li>Wind Chill: <span class="left" id="wind-chill"></span><span id="w-unit"></span>
-                <li>Humidity: <span class="left" id="humidity"></span>%
-                <li>Wind Speed: <span class="left" id="wind-speed"></span><span class="left" id="ws-unit"></span>
-              </ul>
-            </div>
+          <div id="weather-summary">
+            <span id="unit-container"><span id="imperial">F </span>|<span id="metric"> C</span></span>
+            <ul>
+              <li><span id="city-name">Tijuana</span></li>
+              <li id="temperature-li"><span class="left" id="temperature">34</span><span id="t-unit">C</span>
+              <li><span class="left" id="currently">Clear<span></li>
+              <li class="weather-li">Wind Chill: <span class="left" id="wind-chill"></span><span id="w-unit">23 C</span>
+              <li class="weather-li">Humidity: <span class="left" id="humidity">67</span>%
+              <li class="weather-li">Wind Speed: <span class="left" id="wind-speed"></span><span class="left" id="ws-unit">34 m/s</span>
+            </ul>
+          </div>
           <div class="forecastdiv">
-            <span class="Wed">
+            <div class="Wed">
+              <h4 class="day-name">Wednesday</h4>
+              <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
+              <h5 class="forecast">sunny</h5>
+            </div>
+            <div class="Thu">
+              <h4 class="day-name">Friday</h4>
+              <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
+              <h5 class="forecast">clear</h5>
+            </div>
+            <div class="Fri">
               <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast"></h5>
-            </span>
-            <span class="Thu">
+            </div>
+            <div class="Sat">
               <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast"></h5>
-            </span>
-            <span class="Fri">
+            </div>
+            <div class="Sun">
               <h4 class="day-name"></h4>
               <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
               <h5 class="forecast"></h5>
-            </span>
-            <span class="Sat">
-              <h4 class="day-name"></h4>
-              <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast"></h5>
-            </span>
-            <span class="Sun">
-              <h4 class="day-name"></h4>
-              <img class="iconf" src="https://via.placeholder.com/80x80" alt="icon">
-              <h5 class="forecast"></h5>
-            </span>
+            </div>
           </div>
         </main>
         <footer>
