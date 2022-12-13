@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
-    background-image: url("../images/rz-sky-unsplash.jpg");
-    background-size: cover;
-    font-family: 'Roboto';
-    color: white;
+  background-image: url("../images/bck_image.jpg");
+  /*background: rgb(61,128,203);*/
+  /*background: linear-gradient(211deg, rgba(61,128,203,1) 0%, rgba(72,137,209,1) 50%, rgba(170,212,234,1) 100%);*/
+  background-size: cover;
+  font-family: 'Roboto';
+  color: white;
 }
 #name {
   color: white;
   background-color: #554e58;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 .button {
-  width: 38px;
-  height: 38px;
+  width: 2.3em;
+  height: 2.3em;
   text-align: center;
   border-radius: 50%;
   border: none;
@@ -29,25 +32,29 @@ body {
 }
 
 form{
-  margin-left: 9em;
+  margin: 0 auto;
+  margin-left: 1rem;
 }
 
 ul {
   list-style: none;
   padding: 1em;
   margin-bottom: -1em;
+  margin-left: -1em;
+  margin-right: -1em;
+
 }
 #weather-summary{
   margin: 0 auto;
   margin-top: 2em;
-  background-color: #554e58cd;
+  background-color: #554e584c;
   border-radius: 8px;
-  max-width: 78%;
-  padding: 1em;
+  max-width: 76%;
+  padding: 1rem;
 }
 #unit-container{
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -74,21 +81,21 @@ ul {
   display: block;
   text-align: center;
   margin: 0 auto;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 #temperature-li {
   display: block;
   text-align: center;
-  font-size: 5em;
+  font-size: 3.5em;
 }
 #currently{
   display: block;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 1.8em;
 }
 .weather-li{
-  font-size: 1.3rem;
+  font-size: 1.01rem;
   padding: 0.4rem;
 }
 
@@ -102,7 +109,7 @@ ul {
   max-width: 60%;
   margin: 0 auto;
   margin-bottom: 1rem;
-  background-color: #554e58cd;
+  background-color: #554e5839;
   border-radius: 5px;
   font-size: 1.3em;
 }
@@ -112,14 +119,31 @@ ul {
   margin: 0.2em;
 }
 .forecastdiv h4{
-  background-color: #5496b0;
+  background-color: #125b5d;
   color: white;
   margin-top: 0;
   padding: 0.5em;
   text-align: center;
+  font-size: 1rem;
 }
 .forecastdiv h5 {
-  font-size: 1em;
+  font-size: 1rem;
   margin: 0 auto;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+#himg{
+  max-width: 14%;
+  padding-right: 0.2rem;
+  margin-bottom: -0.3rem;
+}
+#wimg{
+  max-width: 14%;
+  padding-right: 0.2rem;
+  margin-bottom: -0.3rem;
+}
+#pimg{
+  transform: rotate(135deg);
+  max-width: 12%;
+  padding-right: 0.2rem;
+  margin-bottom: -0.3rem;
 }

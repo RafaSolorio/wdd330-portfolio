@@ -38,6 +38,7 @@ function filterImages(object) {
     }})
    .then((response) => response.json())
    .then((jsObject) => {
+    console.log(jsObject)
     let catImages = filterImages(jsObject);
     let catDiv = document.getElementById('cats');
     catImages.forEach(element => {

@@ -24,14 +24,11 @@ function getWeather(url){
     document.getElementById('city-name').textContent = jsObject.name;
     document.getElementById('currently').textContent = jsObject.weather[0].main;
     document.getElementById('temperature').textContent = Math.round(jsObject.main.feels_like);
-    //document.getElementById('ct-icon').textContent = jsObject.main.temp;
-    //let img = document.getElementById('ct-icon');
-    //console.log(img)
-    const imagesrc = 'https://openweathermap.org/img/w/' + jsObject.weather[0].icon + '.png';
-    document.getElementById('ct-icon').setAttribute('src', imagesrc);
-    //img.setAttribute('src', imagesrc); 
+    //const imagesrc = 'https://openweathermap.org/img/w/' + jsObject.weather[0].icon + '.png';
+    //document.getElementById('ct-icon').setAttribute('src', imagesrc);
     document.getElementById('humidity').textContent = jsObject.main.humidity;
-    document.getElementById('wind-speed').textContent = jsObject.wind.speed;
+    document.getElementById('pressure').textContent = jsObject.main.pressure;
+    renderUnits('imperial');
   });
 }
 
@@ -92,8 +89,9 @@ form.addEventListener('submit', searchPlace, false);
 function searchPlace(event){
     event.preventDefault();
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${form.name.value}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+    let urlf = `https://api.openweathermap.org/data/2.5/forecast?q=${form.name.value}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
     //getWeather(url);
-    //forecast(apiURLf);
+    //forecast(urlf);
     
 }
 
@@ -137,31 +135,69 @@ async function getULocation(ipurl) {
 //let userLocation = await getULocation(loc);
 //let theurl = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
 
-let apiUrlImperial = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
-let apiUrlMetric = 'https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
-let apiURLFImperial = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial';
-let apiURLfMetric = 'https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric';
+let apiUrlImperial = `https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+let apiUrlMetric = `https://api.openweathermap.org/data/2.5/weather?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
+let apiURLFImperial = `https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=imperial`;
+let apiURLfMetric = `https://api.openweathermap.org/data/2.5/forecast?q=tijuana&appid=653115c2b12015a06e90d44cf9a1fe16&units=metric`;
 
 
 //forecast(apiURLf);
 
-
+function convertToCelsius(temperature){
+  let celsiusTemp = (temperature - 32) * 5/9;
+  return Math.round(celsiusTemp)
+}
+function convertToMS(mph){
+  let ms = mph / 2.237
+  return ms.toFixed(2)
+}
 //switch units
 let imperial = document.getElementById('imperial');
 imperial.addEventListener('click', function(event){
   event.preventDefault();
   //getWeather(apiUrlImperial);
-  document.getElementById('t-unit').innerHTML = '°F';
-  document.getElementById('w-unit').innerHTML = '°F'
-  document.getElementById('ws-unit').innerHTML = 'mph'
+  renderUnits('imperial')
 });
 
 let metric = document.getElementById('metric');
 metric.addEventListener('click', function(event){
   event.preventDefault();
+  //example to change units
+  //document.getElementById('temperature').innerHTML = convertToCelsius(document.getElementById('temperature').innerHTML);
+  document.getElementById('wind-speed').innerHTML = convertToMS(document.getElementById('wind-speed').innerHTML);
   //getWeather(apiUrlMetric);
-  document.getElementById('t-unit').innerHTML = '°C';
-  document.getElementById('w-unit').innerHTML = '°C'
-  document.getElementById('ws-unit').innerHTML = 'm/s'
+  renderUnits('metric')
 });
-//getWeather(apiUrlMetric);
+
+function renderUnits(units){
+  if (units == "imperial"){
+    document.getElementById('t-unit').innerHTML = '°F';
+    document.getElementById('ws-unit').innerHTML = 'mph';
+  }
+  if (units == "metric"){
+    document.getElementById('t-unit').innerHTML = '°C';
+    document.getElementById('ws-unit').innerHTML = 'm/s';
+  }
+}
+//getWeather(apiUrlImperial);
+//forecast(apiURLFImperial)
+const catapiUrl = 'https://api.thecatapi.com/v1/breeds';
+function getJSON(url) {
+  return fetch(url)
+    .then(function(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      } else {
+        //console.log(response.json());
+        return response.json();
+      }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+function computePressureinHg(pressureInhPa){
+  let pressure = pressureInhPa * 0.02953;
+  return pressure.toFixed(2)
+}
