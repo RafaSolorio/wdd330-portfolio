@@ -1,10 +1,10 @@
 .exercise {
     font-size: 1.6em;
-    color: #264653;
+    color: #43BCCD;
 }
 
 .exercise:hover {
-    color: #f77f00;
+    color: #FBAD88;
 }
 
 a{
@@ -13,4 +13,7 @@ a{
 
 .index {
     text-decoration: none;
+}
+p {
+    padding-left: 1em;
 }

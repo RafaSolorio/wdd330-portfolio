@@ -1,18 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body{
+    background-color: #1e283a;
+    color: white;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 h1, h2, h3, h4, h5 {
     font-family: 'Abyssinica SIL';
 }
 
+
 p {
     font-family: 'Roboto';
     font-size: 1.17em;
+    padding-left: 1em;
 }
 h1 {
-    color: #264653;
+    color: #F9C80E;
 }
-
+h2{
+    color: #F86624;
+}
 .index {
     text-decoration: none;
 }
@@ -22,17 +33,43 @@ ul li a{
     font-family: 'Roboto';
     font-size: 1.17em;
 }
-
+ol li{
+    padding: 0.5rem;
+}
 ol li a {
     text-decoration: none;
     font-family: 'Roboto';
+    font-size: 1.3em;
+    color: #43BCCD;
+}
+.exercise-link{
+    text-decoration: none;
+    font-family: 'Roboto';
     font-size: 1.17em;
+    color: #43BCCD;
+    padding-left: 1em;
+}
+.exercise-link:hover{
+    color: #FBAD88;
 }
 
 li :hover{
-    color: #fca311;
+    color: #FBAD88;
 }
 
 .index :hover {
     color: #f77f00;
+}
+
+.project-list li a{
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-size: 1.5em;
+    color: #43BCCD
+}
+.project-list li a:hover{
+    color: #FBAD88;
+}
+.project-list li{
+    padding: 0.5em;
 }

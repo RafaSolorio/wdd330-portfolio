@@ -15,15 +15,22 @@ li {
 }
 
 #ajax {
+    text-decoration: none;
+    font-family: 'Roboto';
     font-size: 1.7em;
-    color: #264653;
+    color: #43BCCD;
+    padding-left: 1em;
 }
 
 #ajax:hover {
-    color: #f77f00;
+    color: #FBAD88;
 }
 
 #notes {
     margin-top: 1.8em;
     margin-bottom: -1.6rem;
+}
+
+p {
+    padding-left: 1em;
 }

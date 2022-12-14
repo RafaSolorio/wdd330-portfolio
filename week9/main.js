@@ -1,3 +1,4 @@
+import { getJSON } from "../cat_app/js/utilities.js";
 const btn = document.getElementById('rainbow');
 
 const rainbow = ['red','orange','yellow','green','blue','rebeccapurple','violet'];

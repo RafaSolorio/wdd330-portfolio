@@ -1,8 +1,7 @@
 import { Weather } from './weather.js';
 import { Forecast } from './forecast.js';
-import { switchUnits } from './utilities.js';
 
-//Request visitor data using Fetch API (Async/Await)  DONE
+//Request visitor data using Fetch API
 const request = await fetch("https://ipinfo.io/json?token=b9be1cdead0805")
 const jsonResponse = await request.json()
 const city = jsonResponse.city;

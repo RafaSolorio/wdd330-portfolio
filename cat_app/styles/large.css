@@ -1,0 +1,27 @@
+@media only screen and (min-width: 50em) {
+    header p {
+        font-size: 1.5em;
+    }
+    #selector {
+        display: inline;
+        font-size: 1.2em;
+        padding-left: 6em;
+        margin-top: 2em;
+    }
+    select {
+        display: inline;
+        font-size: 1.2em;
+        margin-top: 2em;
+    }
+    h2{
+        font-size: 2em;
+        padding-bottom: 1rem;
+    }
+    #cats img{
+        max-width: 60%;
+    }
+    #cats p{
+        max-width: 98%;
+        font-size: 1.2em;
+    }
+}

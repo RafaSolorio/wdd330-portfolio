@@ -1,4 +1,3 @@
-import {getLocation} from './utilities.js';
 
 function getDayName(date){
   const days = [
@@ -100,7 +99,7 @@ function searchPlace(event){
 //forecast(newF);
 
 
-let location = 'https://ipinfo.io/json'; //1000 limit per day. this is the chosen
+//let location = 'https://ipinfo.io/json'; //1000 limit per day. this is the chosen
 let loc  ='http://www.geoplugin.net/json.gp?ip='  // testing
 
 
@@ -151,6 +150,11 @@ function convertToMS(mph){
   let ms = mph / 2.237
   return ms.toFixed(2)
 }
+
+console.log(convertToMS(2.51))
+console.log(convertToMS(3.21))
+console.log(convertToMS(1.69))
+
 //switch units
 let imperial = document.getElementById('imperial');
 imperial.addEventListener('click', function(event){
