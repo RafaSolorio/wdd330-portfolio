@@ -17,3 +17,13 @@ a{
 p {
     padding-left: 1em;
 }
+
+#team-exercise{
+    padding-left: 1em;
+    font-size: 1.6em;
+    color: #43BCCD;
+    text-decoration: none;
+}
+#team-exercise:hover{
+    color: #FBAD88;
+}
